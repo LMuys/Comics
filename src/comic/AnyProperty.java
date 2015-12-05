@@ -17,4 +17,7 @@ public abstract class AnyProperty {
     public int getId() {
         return mId;
     }
+
+    public abstract AnyClaim getClaim();
+    public abstract void setClaim(AnyClaim claim);
 }

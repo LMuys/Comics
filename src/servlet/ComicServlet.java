@@ -1,8 +1,8 @@
-package comic;
+package servlet;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Arrays; 
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -21,6 +21,12 @@ public abstract class AnyLog {
         this.mId = mId;
     }
 
-    public abstract List<? extends AnyClaim> getClaims();
+    public abstract void addClaim(AnyClaim claim);
+    public abstract boolean removeClaim(AnyClaim claim);
+    public abstract List<AnyClaim> getClaims();
+
+    public abstract void addMedia(AnyMedia media);
+    public abstract boolean removeMedia(AnyMedia media);
+    public abstract List<AnyMedia> getMedias();
 
 }
