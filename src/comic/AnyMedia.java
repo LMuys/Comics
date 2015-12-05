@@ -1,4 +1,5 @@
 package comic;
+
 import java.util.List;
 
 /**

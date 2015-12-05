@@ -6,13 +6,13 @@ import java.util.List;
 /**
  * Created by hudoassenco on 12/1/15.
  */
-public class Comic extends AnyIntellect {
+public class Comic extends AnyProperty {
 
 	private int comicId;
     private String mName;
-    private String pictureUrl;
     String mHero;
     private List<String> mCharactersNames;
+    public List<String> mAuthors;
 
     public Comic(int mId, String name, String hero) {
         super(mId);
@@ -21,14 +21,6 @@ public class Comic extends AnyIntellect {
         mHero = hero;
         mCharactersNames = new ArrayList<String>();
         mCharactersNames.add(mHero);
-    }
-    
-    public void setPicture(String pictureUrl) {
-    	this.pictureUrl = pictureUrl;
-    }
-    
-    public String getPicture() {
-    	return this.pictureUrl;
     }
     
     public int getComicId() {
@@ -66,23 +58,17 @@ public class Comic extends AnyIntellect {
     public boolean removeCharacterName(String name) {
         return mCharactersNames.remove(name);
     }
-
-    @Override
-    public AnyEvidence generateEvidence() {
-        //TODO: How to get the AuthorName?
-        return new CopyrightEvidence(AnyEvidence.getNextId(),"", mId, new Date() );
-    }
     
-    @Override
-    public String toString() {
-    	if (mCharactersNames != null && !mCharactersNames.isEmpty()) {
-    		String characters = "";
-    		for (String character : mCharactersNames) {
-    			characters += character + ", ";
-    		}
-    		characters = characters.substring(0, characters.lastIndexOf(","));
-    		return "Name: " + mName + ", with main characters " + characters + ".";
-    	}
-    	return "Name: " + mName + ", no characters listed.";
+    public void addAuthor(String author) {
+        mAuthors.add(author);
+    }
+    public boolean removeAuthor(String author) {
+        return mAuthors.remove(author);
+    }
+    public List<String> getAuthors() {
+        return mAuthors;
+    }
+    public void setAuthors(List<String> authors) {
+        mAuthors = authors;
     }
 }

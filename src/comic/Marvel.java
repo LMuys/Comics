@@ -6,50 +6,50 @@ import java.util.List;
  * Created by hudoassenco on 12/1/15.
  */
 public class Marvel extends AnyParty {
-	protected List<AuthorContractProperty> mProperties;
-    protected List<Comic> mIntellects;
+    private List<Comic> mComics;
+    private List<Publication> mPublications;
 
-    public Marvel(List<AuthorContractProperty> properties, List<Comic> intellects) {
-        super("Marvel");
-
-        this.mProperties = properties;
-        this.mIntellects = intellects;
+    public Marvel(String name, String userName, String password) {
+    	super(name, userName, password);
     }
 
+    @Override
+    public void addProperty(AnyProperty property) {
+        mComics.add((Comic) property);
+    }
+
+    @Override
+    public boolean removeProperty(AnyProperty property) {
+        return mComics.remove((Comic) property);
+    }
+
+    @Override
     public List<? extends AnyProperty> getProperties() {
-        return mProperties;
+        return mComics;
+    }
+
+    @Override
+    public void setProperties(List<? extends AnyProperty> properties) {
+        mComics = (List<Comic>) properties;
+    }
+
+    @Override
+    public void addIntellect(AnyIntellect intellect) {
+        mPublications.add((Publication) intellect);
+    }
+
+    @Override
+    public boolean removeIntellect(AnyIntellect intellect) {
+        return mPublications.remove((Publication) intellect);
     }
 
     @Override
     public List<? extends AnyIntellect> getIntellects() {
-        return mIntellects;
+        return mPublications;
     }
 
-    public void addProperty(AuthorContractProperty authorContractProperty) {
-        mProperties.add(authorContractProperty);
+    @Override
+    public void setIntellects(List<? extends AnyIntellect> intellects) {
+        mPublications = (List<Publication>) intellects;
     }
-
-    public boolean removeProperty(AuthorContractProperty authorContractProperty) {
-        return mProperties.remove(authorContractProperty);
-    }
-
-    public void addComic(Comic comic) {
-        mIntellects.add(comic);
-    }
-
-    public boolean removeComic(Comic comic) {
-        return mIntellects.remove(comic);
-    }
-
-	public String displayComics() {
-		if (mIntellects == null || mIntellects.isEmpty()) return "Marvel Comics has no comics to display";
-		else {
-			String displayComics = "";
-			for (Comic c : mIntellects) {
-				displayComics += c.toString() + "\n";
-			}
-			return displayComics;
-		}
-	}
-
 }

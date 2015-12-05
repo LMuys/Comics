@@ -1,7 +1,12 @@
 package comic;
+
+import java.util.List;
+
 public abstract class AnyEvidence {
 
     private static int NEXT_ID = 0;
+
+    private List<CopyrightEvidence> mCopyrightEvidences;
 
     protected int mId;
 

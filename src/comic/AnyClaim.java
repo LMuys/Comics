@@ -1,4 +1,5 @@
 package comic;
+
 public abstract class AnyClaim {
 
 	protected int mId;

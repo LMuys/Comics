@@ -17,13 +17,11 @@ import comic.*;
 public class ComicServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int comicId = 1;
-	private ArrayList<Comic> listOfComics;
 	private Marvel marvel;
     
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Comic spiderman = new Comic(comicId++, "Amazing Spider-man", "Spiderman");
-		spiderman.setPicture("http://vignette4.wikia.nocookie.net/marveldatabase/images/0/0e/Spider-Man_Comics_Weekly_Vol_1_88.jpg/revision/latest?cb=20120815032126");
     	Comic ironman = new Comic(comicId++, "Iron Man", "Ironman");
     	Comic captainamerica = new Comic(comicId++, "Captain America Comics", "Captain America");
     	Comic xmen = new Comic(comicId++, "X-Men", "Wolverine");
@@ -32,11 +30,11 @@ public class ComicServlet extends HttpServlet {
     	comics.add(ironman);
     	comics.add(captainamerica);
     	comics.add(xmen);
-    	Marvel marvel = new Marvel(null, comics);
+    	Marvel marvel = new Marvel("marvel", "Marvel", "comics");
+    	marvel.setProperties(comics);
     	this.marvel = marvel;
-    	listOfComics = comics;
     	
-    	request.setAttribute("listOfComics", marvel.getIntellects());
+    	request.setAttribute("listOfComics", marvel.getProperties());
     	RequestDispatcher rd = request.getRequestDispatcher("/comic.jsp");
         rd.forward(request, response);
     }
@@ -45,8 +43,8 @@ public class ComicServlet extends HttpServlet {
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 String comicName = request.getParameter("comic");
 		 String hero = request.getParameter("hero");
-		 marvel.addComic(new Comic(comicId++, comicName, hero));
-		 request.setAttribute("listOfComics", marvel.getIntellects());
+		 marvel.addProperty(new Comic(comicId++, comicName, hero));
+		 request.setAttribute("listOfComics", marvel.getProperties());
 		 
 		 request.getRequestDispatcher("/comic.jsp").forward(request, response);
 	 }
