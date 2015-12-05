@@ -1,4 +1,4 @@
-package comic;
+package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import comic.*;
 public class ComicServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int comicId = 1;
-	private Marvel marvel;
+	private Publisher marvel;
     
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +30,7 @@ public class ComicServlet extends HttpServlet {
     	comics.add(ironman);
     	comics.add(captainamerica);
     	comics.add(xmen);
-    	Marvel marvel = new Marvel("marvel", "Marvel", "comics");
+    	Publisher marvel = new Publisher("marvel", "Marvel", "comics");
     	marvel.setProperties(comics);
     	this.marvel = marvel;
     	

@@ -9,16 +9,25 @@ public class Publication extends AnyIntellect {
 
     private Date mDate;
     private Comic mComic;
+    private String mPublisher;
 
     public Publication(int mId) {
         super(mId);
     }
 
+    //Remember to add the generated evidence to AnyEvidence.
+    // Ex:
+    // AnyEvidence evidence = publication.generateEvidence();
+    // AnyEvidence.addEvidence(evidence);
     @Override
     public AnyEvidence generateEvidence() {
         //Simulate Online Copyright registration
 
-        return null;
+        CopyrightEvidence evidence = new CopyrightEvidence(AnyEvidence.getNextId());
+        evidence.setComic(mComic);
+        evidence.setDate(new Date());
+
+        return evidence;
     }
 
 }

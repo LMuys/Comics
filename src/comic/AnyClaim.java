@@ -15,6 +15,4 @@ public abstract class AnyClaim {
 	public void setId(int mId) {
 		this.mId = mId;
 	}
-
-    public abstract void recordOnLog(AnyLog log);
 }
