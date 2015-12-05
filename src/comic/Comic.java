@@ -13,9 +13,6 @@ public class Comic extends AnyProperty {
     String mHero;
     private List<String> mCharactersNames;
     public List<String> mAuthors;
-    private ComicIdentification mComicIdentification;
-    private ComicLaunchEvent mComicLaunchEvent;
-    private Genre mGenre;
 
     public Comic(int mId, String name, String hero) {
         super(mId);
@@ -73,27 +70,5 @@ public class Comic extends AnyProperty {
     }
     public void setAuthors(List<String> authors) {
         mAuthors = authors;
-    }
-    public ComicLaunchEvent getComicLaunchEvent() {
-        return mComicLaunchEvent;
-    }
-    public void setComicLaunchEvent(ComicLaunchEvent comicLaunchEvent) {
-        mComicLaunchEvent = comicLaunchEvent;
-    }
-
-    public Genre getGenre() {
-        return mGenre;
-    }
-    public void setGenre(Genre genre) {
-        mGenre = genre;
-    }
-
-    @Override
-    public void setClaim(AnyClaim claim) {
-        mComicIdentification = (ComicIdentification) claim;
-    }
-    @Override
-    public AnyClaim getClaim() {
-        return mComicIdentification;
     }
 }

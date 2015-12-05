@@ -6,7 +6,7 @@ public abstract class AnyEvidence {
 
     private static int NEXT_ID = 0;
 
-    private static List<AnyEvidence> mEvidences;
+    private List<CopyrightEvidence> mCopyrightEvidences;
 
     protected int mId;
 
@@ -20,22 +20,6 @@ public abstract class AnyEvidence {
 
     public void setId(int mId) {
         this.mId = mId;
-    }
-
-    public static List<AnyEvidence> getEvidences() {
-        return mEvidences;
-    }
-
-    public static void setEvidences(List<AnyEvidence> evidences) {
-        mEvidences = evidences;
-    }
-
-    public static void addEvidence(AnyEvidence evidence) {
-        mEvidences.add(evidence);
-    }
-
-    public static boolean removeEvidence(AnyEvidence evidence) {
-        return mEvidences.remove(evidence);
     }
 
     public abstract boolean validateClaim(AnyClaim claim);

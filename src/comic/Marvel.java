@@ -5,11 +5,11 @@ import java.util.List;
 /**
  * Created by hudoassenco on 12/1/15.
  */
-public class Publisher extends AnyParty {
+public class Marvel extends AnyParty {
     private List<Comic> mComics;
     private List<Publication> mPublications;
 
-    public Publisher(String name, String userName, String password) {
+    public Marvel(String name, String userName, String password) {
     	super(name, userName, password);
     }
 
